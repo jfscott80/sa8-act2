@@ -130,3 +130,30 @@ end
 # chevy = Truck.new
 # chevy.drive("Chevy")
 
+# Problem 7: Polymorphism through Duck Typing
+# Objective: Define two classes, Writer and Painter, each with a create method.
+# Write a function showcase_talent that takes an array of artists (writers and painters) and calls create on each,
+# demonstrating polymorphism through duck typing.
+class Writer
+    def create
+        p "A book has been created."
+    end
+end
+class Painter
+    def create
+        p "A painting has been created."
+    end
+end
+# test code
+# artists = []
+# artists.push(hemingway = Writer.new)
+# artists.push(herbert = Writer.new)
+# artists.push(adams = Writer.new)
+# artists.push(monet = Painter.new)
+# artists.push(davinci = Painter.new)
+# artists.push(picasso = Painter.new)
+# artists.each do |a|
+#     a.create
+# end
+
+
