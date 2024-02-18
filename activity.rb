@@ -14,7 +14,7 @@ class Laptop
         @model
     end
 end
-# test code
+# # test code
 # pc = Laptop.new('lenovo', 'ideapad')
 # p pc.brand, pc.model
 
@@ -31,7 +31,7 @@ class Gadget
         @price = price
     end
 end
-# test code
+# # test code
 # g = Gadget.new('phone')
 # p g.name
 # g.price = 40
@@ -48,7 +48,7 @@ class User
         @name = name
     end
 end
-# test code
+# # test code
 # fitz = User.new
 # fitz.name = ""  #raise error message
 # p fitz.inspect
@@ -75,7 +75,7 @@ class Microwave < Appliance
         p "This one heats food up."
     end
 end
-# test code
+# # test code
 # r = Refrigerator.new
 # r.show_info
 # r.chill_info
@@ -104,7 +104,7 @@ module Payments
 end
 job_one = Payments::Invoice.new
 rec_one = Payments::Receipt.new
-# test case
+# # test case
 # job_one.add
 # rec_one.paid
 
@@ -124,7 +124,7 @@ end
 class Truck
 include Drivable
 end
-#test code
+# # test code
 # kia = Car.new
 # kia.drive("Kia")
 # chevy = Truck.new
@@ -144,7 +144,7 @@ class Painter
         p "A painting has been created."
     end
 end
-# test code
+# # test code
 # artists = []
 # artists.push(hemingway = Writer.new)
 # artists.push(herbert = Writer.new)
@@ -154,6 +154,35 @@ end
 # artists.push(picasso = Painter.new)
 # artists.each do |a|
 #     a.create
+# end
+
+
+# Problem 8: Encapsulation using Private Methods
+# Objective: Create a BankAccount class with methods to deposit and withdraw.
+# Use a private method log_transaction to log each deposit and withdrawal, demonstrating encapsulation.
+class BankAccount
+    def deposit(amount)
+        log_transaction(amount)
+        p "#{amount} deposited."
+    end
+    def withdraw(amount)
+        log_transaction( -amount)
+        p "#{amount} withdrawn."
+    end
+    private
+
+    def log_transaction(transaction)
+        p "Transaction logged"
+    end
+end
+# # test code
+# checking = BankAccount.new
+# checking.deposit(100)
+# checking.withdraw(20)
+# begin
+#     checking.log_transaction(20)
+# rescue
+#     p "You cannot access this method from outside the class."
 # end
 
 
