@@ -185,4 +185,25 @@ end
 #     p "You cannot access this method from outside the class."
 # end
 
+# Problem 9: Using self in Instance Methods
+# Objective: Define a Camera class with an instance variable @status.
+# Use self to write methods turn_on and turn_off that update the @status and print whether the camera is on or off.
+class Camera
+    attr_accessor :status
+    def initialize(status="off")
+        @status = status
+    end
+    def turn_off
+        @status = "off"
+        p "The camera is #{@status}."
+    end
+    def turn_on
+        @status = "on"
+        p "The camera is #{@status}."
+    end
 
+end
+c = Camera.new
+p c
+c.turn_on
+c.turn_off
