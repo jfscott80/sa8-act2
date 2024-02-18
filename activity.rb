@@ -86,3 +86,23 @@ end
 # a.show_info
 
 
+# Problem 5: Module as Namespace
+# Objective: Define a module Payments as a namespace, and within it, define two classes, Invoice and Receipt.
+# Demonstrate creating instances of these classes within the Payments namespace.
+module Payments
+    class Invoice
+        def add
+            p "Invoice created."
+        end
+    end
+
+    class Receipt
+        def paid
+            p "Invoice paid. Take your receipt."
+        end
+    end
+end
+job_one = Payments::Invoice.new
+rec_one = Payments::Receipt.new
+job_one.add
+rec_one.paid
