@@ -104,5 +104,29 @@ module Payments
 end
 job_one = Payments::Invoice.new
 rec_one = Payments::Receipt.new
-job_one.add
-rec_one.paid
+# test case
+# job_one.add
+# rec_one.paid
+
+# Problem 6: Include Module as Mixin
+# Objective: Create a module Drivable with a method drive. Include this module in a Car class and a Truck class to share
+# the drive method functionality. Show how objects of both classes can use the drive method.
+module Drivable
+    def drive(vehicle)
+        p "#{vehicle} in drive."
+    end
+end
+
+class Car
+    include Drivable
+end
+
+class Truck
+include Drivable
+end
+#test code
+# kia = Car.new
+# kia.drive("Kia")
+# chevy = Truck.new
+# chevy.drive("Chevy")
+
