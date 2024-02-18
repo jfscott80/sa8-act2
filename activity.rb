@@ -36,3 +36,21 @@ end
 # p g.name
 # g.price = 40
 # p g.inspect
+
+
+# Problem 3: Custom Setter with Validation
+# Objective: Define a User class with a username attribute. Implement a custom setter for username that validates the
+# username is not empty or nil. Raise an ArgumentError if the validation fails.
+class User
+    attr_writer :username
+    def name=(name)
+        raise ArgumentError, "Name cannot be empty" if name.to_s.strip.empty?
+        @name = name
+    end
+end
+# test code
+fitz = User.new
+fitz.name = ""
+p fitz.inspect
+fitz.name = "fitz"
+p fitz.inspect
