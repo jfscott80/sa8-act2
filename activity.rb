@@ -49,8 +49,40 @@ class User
     end
 end
 # test code
-fitz = User.new
-fitz.name = ""
-p fitz.inspect
-fitz.name = "fitz"
-p fitz.inspect
+# fitz = User.new
+# fitz.name = ""  #raise error message
+# p fitz.inspect
+# fitz.name = "fitz"
+# p fitz.inspect
+
+
+# Problem 4: Inheritance with Base and Subclasses
+# Objective: Create a base class Appliance with a method show_info that prints "This is a household appliance."
+# Define two subclasses, Refrigerator and Microwave, that inherit from Appliance. Add a unique method to each subclass
+# that prints specific information about the appliance. Ensure show_info is shared and not overridden.
+class Appliance
+    def show_info
+        p "This is a household appliance."
+    end
+end
+class Refrigerator < Appliance
+    def chill_info
+        p "This one keeps food cold."
+    end
+end
+class Microwave < Appliance
+    def heat_info
+        p "This one heats food up."
+    end
+end
+# test code
+# r = Refrigerator.new
+# r.show_info
+# r.chill_info
+# m = Microwave.new
+# m.show_info
+# m.heat_info
+# a = Appliance.new
+# a.show_info
+
+
