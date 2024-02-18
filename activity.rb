@@ -14,5 +14,25 @@ class Laptop
         @model
     end
 end
-pc = Laptop.new('lenovo', 'ideapad')
-p pc.brand, pc.model
+# test code
+# pc = Laptop.new('lenovo', 'ideapad')
+# p pc.brand, pc.model
+
+# Problem 2: Using attr_reader and attr_writer
+# Objective: Create a Gadget class with name and price attributes. Use attr_reader for name and attr_writer for price.
+# Demonstrate how to read the name and update the price of a Gadget instance.
+class Gadget
+    attr_reader :name
+    attr_writer :price
+    def initialize(name)
+        @name = name
+    end
+    def price=(price)
+        @price = price
+    end
+end
+# test code
+# g = Gadget.new('phone')
+# p g.name
+# g.price = 40
+# p g.inspect
