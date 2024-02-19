@@ -1,7 +1,4 @@
-# Problem 1: Basic Class Definition and Instantiation
-# Objective: Define a Laptop class with attributes brand and model. Instead of using attr_accessor or attr_reader,
-# implement custom getter methods for these attributes. Instantiate an object of this class and use the getter methods
-# to display its attributes.
+# Problem 1:
 class Laptop
     def initialize(brand, model)
         @brand = brand
@@ -14,13 +11,8 @@ class Laptop
         @model
     end
 end
-# # test code
-# pc = Laptop.new('lenovo', 'ideapad')
-# p pc.brand, pc.model
 
-# Problem 2: Using attr_reader and attr_writer
-# Objective: Create a Gadget class with name and price attributes. Use attr_reader for name and attr_writer for price.
-# Demonstrate how to read the name and update the price of a Gadget instance.
+# Problem 2:
 class Gadget
     attr_reader :name
     attr_writer :price
@@ -31,16 +23,8 @@ class Gadget
         @price = price
     end
 end
-# # test code
-# g = Gadget.new('phone')
-# p g.name
-# g.price = 40
-# p g.inspect
 
-
-# Problem 3: Custom Setter with Validation
-# Objective: Define a User class with a username attribute. Implement a custom setter for username that validates the
-# username is not empty or nil. Raise an ArgumentError if the validation fails.
+# Problem 3:
 class User
     attr_writer :username
     def name=(name)
@@ -48,18 +32,8 @@ class User
         @name = name
     end
 end
-# # test code
-# fitz = User.new
-# fitz.name = ""  #raise error message
-# p fitz.inspect
-# fitz.name = "fitz"
-# p fitz.inspect
 
-
-# Problem 4: Inheritance with Base and Subclasses
-# Objective: Create a base class Appliance with a method show_info that prints "This is a household appliance."
-# Define two subclasses, Refrigerator and Microwave, that inherit from Appliance. Add a unique method to each subclass
-# that prints specific information about the appliance. Ensure show_info is shared and not overridden.
+# Problem 4:
 class Appliance
     def show_info
         p "This is a household appliance."
@@ -75,20 +49,8 @@ class Microwave < Appliance
         p "This one heats food up."
     end
 end
-# # test code
-# r = Refrigerator.new
-# r.show_info
-# r.chill_info
-# m = Microwave.new
-# m.show_info
-# m.heat_info
-# a = Appliance.new
-# a.show_info
 
-
-# Problem 5: Module as Namespace
-# Objective: Define a module Payments as a namespace, and within it, define two classes, Invoice and Receipt.
-# Demonstrate creating instances of these classes within the Payments namespace.
+# Problem 5:
 module Payments
     class Invoice
         def add
@@ -104,13 +66,9 @@ module Payments
 end
 job_one = Payments::Invoice.new
 rec_one = Payments::Receipt.new
-# # test case
-# job_one.add
-# rec_one.paid
 
-# Problem 6: Include Module as Mixin
-# Objective: Create a module Drivable with a method drive. Include this module in a Car class and a Truck class to share
-# the drive method functionality. Show how objects of both classes can use the drive method.
+
+# Problem 6:
 module Drivable
     def drive(vehicle)
         p "#{vehicle} in drive."
@@ -124,16 +82,8 @@ end
 class Truck
 include Drivable
 end
-# # test code
-# kia = Car.new
-# kia.drive("Kia")
-# chevy = Truck.new
-# chevy.drive("Chevy")
 
-# Problem 7: Polymorphism through Duck Typing
-# Objective: Define two classes, Writer and Painter, each with a create method.
-# Write a function showcase_talent that takes an array of artists (writers and painters) and calls create on each,
-# demonstrating polymorphism through duck typing.
+# Problem 7:
 class Writer
     def create
         p "A book has been created."
@@ -144,22 +94,10 @@ class Painter
         p "A painting has been created."
     end
 end
-# # test code
-# artists = []
-# artists.push(hemingway = Writer.new)
-# artists.push(herbert = Writer.new)
-# artists.push(adams = Writer.new)
-# artists.push(monet = Painter.new)
-# artists.push(davinci = Painter.new)
-# artists.push(picasso = Painter.new)
-# artists.each do |a|
-#     a.create
-# end
 
 
-# Problem 8: Encapsulation using Private Methods
-# Objective: Create a BankAccount class with methods to deposit and withdraw.
-# Use a private method log_transaction to log each deposit and withdrawal, demonstrating encapsulation.
+
+# Problem 8:
 class BankAccount
     def deposit(amount)
         log_transaction(amount)
@@ -175,19 +113,9 @@ class BankAccount
         p "Transaction logged"
     end
 end
-# # test code
-# checking = BankAccount.new
-# checking.deposit(100)
-# checking.withdraw(20)
-# begin
-#     checking.log_transaction(20)
-# rescue
-#     p "You cannot access this method from outside the class."
-# end
 
-# Problem 9: Using self in Instance Methods
-# Objective: Define a Camera class with an instance variable @status.
-# Use self to write methods turn_on and turn_off that update the @status and print whether the camera is on or off.
+
+# Problem 9:
 class Camera
     attr_accessor :status
     def initialize(status="off")
@@ -195,15 +123,95 @@ class Camera
     end
     def turn_off
         @status = "off"
-        p "The camera is #{@status}."
+        p "The camera is #{self.status}."
     end
     def turn_on
         @status = "on"
-        p "The camera is #{@status}."
+        p "The camera is #{self.status}."
     end
 
 end
+
+
+# Problem 10:
+class Quiz
+      [:math, :history].each do |method_name|
+        define_method(method_name) do |name|
+            puts "#{method_name.capitalize} question about #{name}:"
+        end
+      end    
+end
+
+#Problem 1 test code
+pc = Laptop.new('lenovo', 'ideapad')
+p pc.brand, pc.model
+
+#Problem 2 test code
+g = Gadget.new('phone')
+p g.name
+g.price = 40
+p g.inspect
+
+
+#Problem 3 test code
+fitz = User.new
+fitz.name = ""  #raise error message
+p fitz.inspect
+fitz.name = "fitz"
+p fitz.inspect
+
+
+#Problem 4 test code
+r = Refrigerator.new
+r.show_info
+r.chill_info
+m = Microwave.new
+m.show_info
+m.heat_info
+a = Appliance.new
+a.show_info
+
+
+#Problem 5 test case
+job_one.add
+rec_one.paid
+
+#Problem 6 test code
+kia = Car.new
+kia.drive("Kia")
+chevy = Truck.new
+chevy.drive("Chevy")
+
+
+# Problem 7 test code
+artists = []
+artists.push(hemingway = Writer.new)
+artists.push(herbert = Writer.new)
+artists.push(adams = Writer.new)
+artists.push(monet = Painter.new)
+artists.push(davinci = Painter.new)
+artists.push(picasso = Painter.new)
+artists.each do |a|
+    a.create
+end
+
+# Problem 8 test code
+checking = BankAccount.new
+checking.deposit(100)
+checking.withdraw(20)
+begin
+    checking.log_transaction(20)
+rescue
+    p "You cannot access this method from outside the class."
+end
+
+# Problem 9 test code
 c = Camera.new
 p c
 c.turn_on
 c.turn_off
+
+# Problem 10 test code
+exam = Quiz.new
+exam.math("integration")
+exam.history("Spain")
